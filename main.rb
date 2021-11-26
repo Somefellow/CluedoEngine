@@ -11,3 +11,6 @@ puts "#{game_state.player_count} players"
   puts "Player #{i}:"
   puts game_state.cards_in_hand(i - 1)
 end
+
+puts 'Solution:'
+puts game_state.solution
