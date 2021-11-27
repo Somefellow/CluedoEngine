@@ -13,3 +13,5 @@ end
 puts "Solution: #{game_state.solution}"
 
 puts "Possible cards: #{game_state.possible_cards}"
+
+game_state.make_guess('w1', 3)

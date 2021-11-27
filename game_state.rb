@@ -23,10 +23,14 @@ class GameState
   end
 
   def cards_in_hand(player_id)
-    @player_data[player_id]
+    @player_data[player_id].shuffle
   end
 
   def make_guess(guess, player_id)
+    # Loop through every player that isn't you in turn order.
+    [*player_id + 1..player_count - 1, *0..player_id - 1].each do |i|
+      puts "make_guess #{i} #{guess}"
+    end
     raise NotImplementedError
   end
 
