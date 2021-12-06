@@ -1,17 +1,9 @@
 # frozen_string_literal: true
 
-require './game_state'
+require './cluedo_engine'
+require './bots/no_deduction_random_bot'
 
 PLAYER_COUNT = 6
+PLAYER_CLASS = NoDeductionRandomBot
 
-game_state = GameState.new PLAYER_COUNT
-
-(1..game_state.player_count).each do |i|
-  puts "Player #{i}: #{game_state.cards_in_hand(i - 1)}"
-end
-
-puts "Solution: #{game_state.solution}"
-
-puts "Possible cards: #{game_state.possible_cards}"
-
-game_state.make_guess('w1', 3)
+(1..100).each { |_i| CluedoEngine.new((1..PLAYER_COUNT).map { |_j| PLAYER_CLASS }.to_a) }
