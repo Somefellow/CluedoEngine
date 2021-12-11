@@ -6,6 +6,8 @@ class CluedoEngine
   WEAPON_COUNT = 6
   ROOM_COUNT = 9
 
+  attr_reader :winning_player_id, :winning_player_class
+
   def initialize(players)
     init_game(players)
     play_game
@@ -85,7 +87,9 @@ class CluedoEngine
 
       final_guess = @players[current_turn_player_id].make_final_guess
       unless final_guess.nil?
-        puts "Player #{current_turn_player_id + 1} making final guess #{final_guess} on turn #{turn_count}, times around the table: #{(turn_count / @players.count).floor} - Solution #{@solution}"
+        # puts "Player #{current_turn_player_id + 1} (#{@players[current_turn_player_id].class}) making final guess #{final_guess} on turn #{turn_count}, times around the table: #{(turn_count / @players.count).floor} - Solution #{@solution}"
+        @winning_player_id = current_turn_player_id + 1
+        @winning_player_class = @players[current_turn_player_id].class
         return
       end
 

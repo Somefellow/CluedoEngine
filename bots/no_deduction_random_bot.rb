@@ -39,6 +39,10 @@ class NoDeductionRandomBot < Bot
     # I don't care.
   end
 
+  def do_have_one_of_these(player_id, cards)
+    # I don't care.
+  end
+
   def reveal_card(_player_id, card)
     @possible_cards.delete(card)
   end

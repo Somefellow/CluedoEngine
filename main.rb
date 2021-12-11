@@ -2,8 +2,17 @@
 
 require './cluedo_engine'
 require './bots/no_deduction_random_bot'
+require './bots/deduction_random_bot'
 
-PLAYER_COUNT = 6
-PLAYER_CLASS = NoDeductionRandomBot
-
-(1..100).each { |_i| CluedoEngine.new((1..PLAYER_COUNT).map { |_j| PLAYER_CLASS }.to_a) }
+puts((1..10_000).map do |_|
+  CluedoEngine.new(
+    [
+      NoDeductionRandomBot,
+      NoDeductionRandomBot,
+      NoDeductionRandomBot,
+      NoDeductionRandomBot,
+      NoDeductionRandomBot,
+      DeductionRandomBot
+    ]
+  ).winning_player_class
+end.tally)
