@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# Development
+require 'pry'
+
 # Import game
 require './game'
 
@@ -8,4 +11,12 @@ require './dummy_player'
 
 # Simulate game
 game = Game.new(DummyPlayer, DummyPlayer, DummyPlayer)
-game.advance_turn while game.in_progress
+puts
+
+while game.in_progress
+  # gets
+  game.advance_turn
+  puts
+end
+
+puts "Turn: #{game.turn_count}"

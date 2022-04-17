@@ -3,9 +3,14 @@
 class DummyPlayer
   attr_reader :cards_in_hand, :possible_cards
 
-  def initialize(cards_in_hand, possible_cards)
-    @cards_in_hand = cards_in_hand
-    @possible_cards = possible_cards.reject { |c| @cards_in_hand.include?(c) }
+  def initialize(possible_cards)
+    @cards_in_hand = []
+    @possible_cards = possible_cards # .reject { |c| @cards_in_hand.include?(c) }
+  end
+
+  def deal_card(card)
+    @cards_in_hand << card
+    @possible_cards.delete(card)
   end
 
   def guess
@@ -16,8 +21,8 @@ class DummyPlayer
     ]
   end
 
-  def reveal_information(player_id, guess, response)
-    return unless response.is_a? Integer
+  def reveal_information(_player_id, _guess, response)
+    return unless response.is_a? Symbol
 
     puts "Deleting #{response} from #{@possible_cards.inspect}"
     @possible_cards.delete(response)

@@ -24,3 +24,6 @@ Layout/LineLength:
 
 Lint/UnusedMethodArgument:
   Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
