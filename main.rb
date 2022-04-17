@@ -1,18 +1,11 @@
 # frozen_string_literal: true
 
-require './cluedo_engine'
-require './bots/no_deduction_random_bot'
-require './bots/deduction_random_bot'
+# Import game
+require './game'
 
-puts((1..10_000).map do |_|
-  CluedoEngine.new(
-    [
-      NoDeductionRandomBot,
-      NoDeductionRandomBot,
-      NoDeductionRandomBot,
-      NoDeductionRandomBot,
-      NoDeductionRandomBot,
-      DeductionRandomBot
-    ]
-  ).winning_player_class
-end.tally)
+# Import players
+require './dummy_player'
+
+# Simulate game
+game = Game.new(DummyPlayer, DummyPlayer, DummyPlayer)
+game.advance_turn while game.in_progress
