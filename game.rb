@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class Game
-  PERSON_COUNT = 3
-  WEAPON_COUNT = 3
-  ROOM_COUNT = 3
+  PERSON_COUNT = 6
+  WEAPON_COUNT = 6
+  ROOM_COUNT = 9
 
   attr_reader :in_progress, :turn_count, :winning_player_id
 
